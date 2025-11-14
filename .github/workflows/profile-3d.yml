@@ -73,10 +73,13 @@ jobs:
           # 包括生成的 3D 贡献图 SVG 文件和其他任何变更
           git add -A .
 
+          # 获取当前时间并格式化为中文日期时间
+          CURRENT_TIME=$(date +'%Y年%m月%d日 %H:%M:%S')
+
           # 提交变更到本地仓库
           # 使用条件判断：只有在有实际变更时才执行推送
           # 如果没有文件变更,git commit 会失败,if 语句确保跳过推送步骤
-          if git commit -m "chore: auto-generated 3d contribution graph"; then
+          if git commit -m "chore: chore: 🔧 $CURRENT_TIME 自动更新3D贡献图 - 生成成功"; then
             # 将本地提交推送到远程仓库
             # 完成整个自动化更新流程
             git push
